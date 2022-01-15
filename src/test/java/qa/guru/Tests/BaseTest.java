@@ -1,8 +1,7 @@
-package qa.guru;
+package qa.guru.Tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
@@ -19,9 +18,7 @@ public class BaseTest {
 
     @AfterAll
     public static void afterAll(){
-
         closeWebDriver();
     }
-
 
 }

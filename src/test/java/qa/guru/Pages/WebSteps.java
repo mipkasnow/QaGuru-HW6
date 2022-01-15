@@ -1,6 +1,10 @@
 package qa.guru.Pages;
 
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
@@ -31,6 +35,12 @@ public class WebSteps {
 
     @Step("Проверяем наличие Issue с номером {issue}")
     public void checkIssueNumber(String issue){
+        addScreen();
         $(withText("#" + issue + "")).should(appear);
+    }
+
+    @Attachment(value = "Screenshot", type = "text/html", fileExtension = "html")
+    public byte[] addScreen(){
+        return WebDriverRunner.source().getBytes(StandardCharsets.UTF_8);
     }
 }
